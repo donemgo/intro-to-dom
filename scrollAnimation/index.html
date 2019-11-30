@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        height: 140vh;
+        width: 100%;
+      }
+      #box {
+        margin-top: 1rem;
+        width: 100%;
+        height: 10rem;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="box"></div>
+    </div>
+    <script>
+      var intersectionOptions = {
+        root: null, // if this is set to null then we are simply looking at when the object intersects with the viewport, if it is set to something, then that is what we woild use to compare. And the root must be an ancestor of the target
+        rootMargin: '0px',
+        threshold: 1.0, // this simply means that when 100% of the item is visible when then invoke the function 'intersectionCallback'
+      };
+
+      function intersectionCallback(entries, observer) {
+        entries.forEach(entry => {
+          // here you see that we are using our favourite array methof FOREACH !!!!
+          if (entry.intersectionRatio >= 1) {
+            console.log('Fully visible!');
+          } else {
+            console.log('Not fully visible!');
+          }
+        });
+      }
+
+      var observer = new IntersectionObserver(intersectionCallback, intersectionOptions);
+
+      var target = document.querySelector('#box');
+      observer.observe(target);
+
+      function intersectionCallback(entries, observer) {
+        entries.forEach(entry => {
+          // the entries contain IntersectionObserverEntries
+          if (entry.intersectionRatio >= 1) {
+            console.log('Fully visible!');
+          } else {
+            console.log('Not fully visible!');
+          }
+        });
+      }
+
+      var observer = new IntersectionObserver(intersectionCallback, intersectionOptions);
+
+      var target = document.querySelector('#box');
+      observer.observe(target); // here we pass in our target to get observed by our function
+    </script>
+  </body>
+</html>
