@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="event-button">Click me</button>
+    <script>
+      // the first thing we are doing here is grabbing the button element, because we need an element to operate on.
+      // next we access a method on that element call 'addEventListeners' which takes two paramenters and then do somethings inside the second parameter which is a callback
+
+      //now here we see the callback in action well, what we are saying is this, we are waiting for a click to happen on this button, this specific button, when it happens run this function called what?????? Emeka I am looking at you for this one.
+      const button = document.querySelector('.event-button');
+      button.addEventListener('click', function() {
+        alert('Hello sweet guys');
+      });
+    </script>
+  </body>
+</html>
