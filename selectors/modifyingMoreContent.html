@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li class="js-target">Unchanged</li>
+      <li class="js-target">Unchanged</li>
+      <li>this one would not change</li>
+      <li class="js-target">Unchanged</li>
+      <li>Unchanged</li>
+      <li class="js-target">Unchanged</li>
+    </ul>
+    <script>
+      const elementsToChange = document.querySelectorAll('js-target'); //so this gets us an Array of elements. we can see this in the console.
+      for (let i = 0; i < elementsToChange.length; i++) {
+        const currentElement = elementsToChange[i];
+        currentElement.innerHTML = 'Modified by Javascript';
+      }
+    </script>
+  </body>
+</html>
